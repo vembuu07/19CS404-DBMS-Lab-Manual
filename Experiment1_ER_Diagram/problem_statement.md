@@ -48,25 +48,89 @@ Design a database for patient management, appointments, medical records, and bil
 # ER Diagram Submission - Student Name
 
 ## Scenario Chosen:
-University / Hospital (choose one)
+University
 
 ## ER Diagram:
-![ER Diagram](er_diagram.png)
+![image](https://github.com/user-attachments/assets/43b176a4-1956-47ce-b6ae-5412f2725a7c)
+
 
 ## Entities and Attributes:
-- Entity1: Attributes
-- Entity2: Attributes
+#### 1. DEPARTMENT: 
+Department ID, Department Name
+
+#### 2. PROGRAM: 
+Program ID, Program Name, Governing Department
+
+#### 3. STUDENT: 
+Admission Number, Name, Email ID, Phone Number, Date of Birth, Age
+
+#### 4. COURSES: 
+Course ID, Course Name, Credits, Prerequisites
+
+#### 5. INSTRUCTOR: 
+Staff ID, Name, Email ID, Phone Number, Date of Birth
 ...
 
 ## Relationships and Constraints:
-- Relationship1 (Cardinality, Participation)
-- Relationship2 (Cardinality, Participation)
+#### 1. DEPARTMENT offers PROGRAM
+
+* _Cardinality_: One-to-Many
+
+* _Participation_: Total (each program belongs to exactly one department)
+
+#### 2. PROGRAM enrolls STUDENT
+
+* _Cardinality_: Many-to-Many
+
+* _Participation_: Partial (a student can be enrolled in multiple programs, but not every student belongs to a program)
+
+#### 3. COURSES catalog PROGRAM
+
+* _Cardinality_: Many-to-One
+
+* _Participation_: Total (every course must be associated with a program)
+
+#### 4. STUDENT registers for COURSES
+
+* _Cardinality_: Many-to-Many
+
+* _Participation_: Partial
+
+#### 5. INSTRUCTOR teaches COURSES
+
+* _Cardinality_: Many-to-Many
+
+* _Participation_: Partial
+
+#### 6. COURSES have prerequisites
+
+* _Cardinality_: Many-to-Many
+
+* _Participation_: Partial
 ...
 
-## Extension (Prerequisite / Billing):
-- Explain how you modeled prerequisites or billing.
+## Extension (Prerequisite):
+ * Prerequisites are represented as a self-referencing many-to-many relationship on the COURSES entity. This allows the flexibility to:
+
+   * Define multiple prerequisites for a single course.
+
+   * Assign a single course as a prerequisite to multiple other courses.
+
 
 ## Design Choices:
-Brief explanation of why you chose certain entities, relationships, and assumptions
+1. _Entity Selection_: The entities were chosen to mirror the key components of an academic institution—departments, programs, students, courses, and instructors—to ensure a comprehensive database structure.
+
+2. _Relationships_: The relationships were established to represent real-world interactions effectively, like enrollment, teaching, and course prerequisites.
+
+3. _Assumptions_: To maintain consistency:
+
+   * Each program belongs to one department.
+
+   * Each course must belong to a program.
+
+   * Instructors may teach multiple courses and vice versa.
+
+* These design decisions ensure the database is both scalable and adheres to academic institution requirements.
 
 ## RESULT
+Thus, to understand and apply the concepts of ER modeling by creating an ER diagram for a real-world application has been done successfully.
